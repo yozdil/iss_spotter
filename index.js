@@ -9,12 +9,14 @@ const printPassTimes = (passTimes) => {
   }
 };
 
-nextISSTimesForMyLocation((error, passTimes) => {
-  if (error) {
-    return console.log("It didn't work!", error);
-  }
-  // success, print out the deets!
-  printPassTimes(passTimes);
-});
+// Commenting this out as printPassTimes is exported to the index2.js
+
+// nextISSTimesForMyLocation((error, passTimes) => {
+//   if (error) {
+//     return console.log("It didn't work!", error);
+//   }
+//   // success, print out the deets!
+//   printPassTimes(passTimes);
+// });
 
 module.exports = { printPassTimes };
