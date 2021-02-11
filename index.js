@@ -1,15 +1,20 @@
 const { nextISSTimesForMyLocation } = require("./iss");
 
+const printPassTimes = (passTimes) => {
+  for (const pass of passTimes) {
+    const datetime = new Date(0);
+    datetime.setUTCSeconds(pass.risetime);
+    const duration = pass.duration;
+    console.log(`Next pass at ${datetime} for ${duration} seconds!`);
+  }
+};
+
 nextISSTimesForMyLocation((error, passTimes) => {
   if (error) {
-    return null;
+    return console.log("It didn't work!", error);
   }
   // success, print out the deets!
-
-  for (const passTime of passTimes) {
-    const datetime = new Date(0);
-    datetime.setUTCSeconds(passTime.risetime);
-
-    console.log(`Next pass at ${datetime} for ${passTime.duration} seconds!`);
-  }
+  printPassTimes(passTimes);
 });
+
+module.exports = { printPassTimes };

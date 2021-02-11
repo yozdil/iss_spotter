@@ -47,6 +47,7 @@ const fetchCoordsByIp = (ip, callback) => {
       latitude: JSON.parse(body).latitude.toString(),
       longitude: JSON.parse(body).longitude.toString(),
     };
+
     // Shorthand version: const { latitude, longitude } = JSON.parse(body);
     // callback(null, { latitude, longitude });
     callback(null, location);
@@ -94,4 +95,9 @@ const nextISSTimesForMyLocation = (callback) => {
   });
 };
 
-module.exports = { nextISSTimesForMyLocation };
+module.exports = {
+  nextISSTimesForMyLocation,
+  fetchMyIP,
+  fetchCoordsByIp,
+  fetchISSFlyOverTimes,
+};
